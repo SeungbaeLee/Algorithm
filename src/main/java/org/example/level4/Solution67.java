@@ -12,5 +12,24 @@ package org.example.level4;
  *
  * 두 문자열 s와 skip, 그리고 자연수 index가 매개변수로 주어질 때 위 규칙대로 s를 변환한 결과를 return하도록 solution 함수를 완성해주세요.
  */
-public class Solution67 {
+class Solution67 {
+    public String solution(String s, String skip, int index) {
+        String answer = "";
+
+        for(int i=0;i<s.length();i++){
+            char c = s.charAt(i);
+            int count = 1;
+            while(count <= index){
+                ++c;
+                if(c > 'z')
+                    c -= 26;
+                if(skip.contains(c+""))
+                    continue;
+                else
+                    count++;
+            }
+            answer += c;
+        }
+        return answer;
+    }
 }
